@@ -14,10 +14,6 @@ This repository houses a dynamic weather widget tailored for integration into sm
 - 📏 **Scalable UI** to fit various TV resolutions and screen sizes.
 - 🌐 **Multi-language support.**
 
-## Integration
-
-Designed with a modular architecture, this widget can be seamlessly integrated into a variety of smart TV streaming platforms. Check out our integration guide for step-by-step instructions.
-
 ## Contribute
 
 Contributions are welcome! Whether it's bug fixes, feature additions, or documentation improvements, your input helps make this widget even better for the community.
