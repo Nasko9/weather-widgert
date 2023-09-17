@@ -1,5 +1,14 @@
-import React from 'react';
+// Hook
+import useStream from './useStream';
 
 export default function Stream() {
-  return <div>Stream</div>;
+  const { videoRef } = useStream();
+
+  return (
+    <video
+      ref={videoRef}
+      className="w-screen h-screen object-fill"
+      preload="auto"
+    />
+  );
 }
