@@ -2,12 +2,16 @@ import { HashRouter } from 'react-router-dom';
 
 // Routes
 import Routes from 'containers/Routes';
+// Context
+import { DarkModeProvider } from 'context/DarkModeContext';
 
 function App() {
   return (
-    <HashRouter>
-      <Routes />
-    </HashRouter>
+    <DarkModeProvider>
+      <HashRouter>
+        <Routes />
+      </HashRouter>
+    </DarkModeProvider>
   );
 }
 
