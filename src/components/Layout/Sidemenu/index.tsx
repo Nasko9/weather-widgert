@@ -1,4 +1,4 @@
-import { faTv, faCloudSun, faGear } from '@fortawesome/free-solid-svg-icons';
+import { faCloudSun, faGear, faTv } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   FocusContext,
