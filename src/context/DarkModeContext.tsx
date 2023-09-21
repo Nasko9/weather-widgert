@@ -23,7 +23,8 @@ const initialStateContext = {
 const DarkModeContext = createContext<IDarkModeContext>(initialStateContext);
 
 export function DarkModeProvider({ children }: IContextProvider) {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+  // !If somehing wrong with darkmode set default state in use state to TRUE
 
   useEffect(() => {
     const isDark = localStorage.getItem('darkMode') === 'true';
