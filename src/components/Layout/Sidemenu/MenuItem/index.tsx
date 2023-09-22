@@ -57,3 +57,5 @@ export default function MenuItem({
     </div>
   );
 }
+
+//TODO: Create a custom hook for the logic inside this component (navigate, handlePressEnter and useFOucsable)

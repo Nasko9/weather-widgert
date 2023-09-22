@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 
 // Component
 import MenuItem from './MenuItem';
-// import { useEffect } from 'react';
 
 export default function Sidemenu({
   focusKey: focusKeyParam,
@@ -33,7 +32,7 @@ export default function Sidemenu({
     <FocusContext.Provider value={focusKey}>
       <div
         ref={ref}
-        className={`absolute h-screen flex items-center overflow-hidden transition-all duration-500 bg-sidebar-light dark:bg-sidebar-dark drop-shadow-xl ${
+        className={` h-screen flex items-center overflow-hidden transition-all duration-500 bg-sidebar-light dark:bg-sidebar-dark drop-shadow-xl ${
           hasFocusedChild ? 'w-48' : 'w-20'
         }`}
       >

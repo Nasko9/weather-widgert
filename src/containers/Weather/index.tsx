@@ -13,7 +13,7 @@ export default function Weather() {
     <FocusContext.Provider value={focusKey}>
       <div
         ref={ref}
-        className={`ml-52 h-52 w-52 ${focused ? 'bg-red-400' : 'bg-green-400'}`}
+        className={`h-52 w-52 ${focused ? 'bg-red-400' : 'bg-green-400'}`}
       ></div>
     </FocusContext.Provider>
   );

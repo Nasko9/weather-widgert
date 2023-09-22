@@ -1,5 +1,3 @@
-import { useLocation } from 'react-router-dom';
-
 // Component
 import Sidemenu from './Sidemenu';
 
@@ -8,13 +6,13 @@ interface ILayout {
 }
 
 export default function Layout({ children }: ILayout) {
-  let location = useLocation();
-
   return (
-    <div className="bg-primary-light dark:bg-primary-dark w-[1920px] h-[1080px]">
-      {(location.pathname === '/weather' ||
-        location.pathname === '/settings') && <Sidemenu focusKey="sidemenu" />}
-      {children}
+    <div className=" flex bg-primary-light dark:bg-primary-dark w-[1920px] h-[1080px]">
+      <Sidemenu focusKey="sidemenu" />
+      <div className="flex-grow">{children}</div>
     </div>
   );
 }
+
+//! The previous solution was hardcoded and not scalable for the future
+//? When the layout is created and we have a SIdebar element that changes the width, then flex grow is placed on the rest of the content

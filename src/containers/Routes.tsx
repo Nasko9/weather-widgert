@@ -10,13 +10,18 @@ import Weather from './Weather';
 
 export default function Routes() {
   return (
-    <Layout>
+    <>
       <Switch>
         <Route path="/" element={<Stream />} />
-
-        <Route path="/weather" element={<Weather />} />
-        <Route path="/settings" element={<Settings />} />
       </Switch>
-    </Layout>
+      <Layout>
+        <Switch>
+          <Route path="/weather" element={<Weather />} />
+          <Route path="/settings" element={<Settings />} />
+        </Switch>
+      </Layout>
+    </>
   );
 }
+
+//!Research whether it is a good practice to use 2 switch components inside one router and whether it is okay to configure the Layout like this

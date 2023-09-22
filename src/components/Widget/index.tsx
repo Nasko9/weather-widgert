@@ -24,3 +24,7 @@ export default function Widget() {
     </FocusContext.Provider>
   );
 }
+
+//? Background color, text color, border radius, shadow, padding and height can be one component called CardContainer inside layout
+//? The WeatherContent component repeats the layout, the WeatherIcon component returns an icon depending on the api response
+//? Context for settings and through that info is extracted
