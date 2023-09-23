@@ -13,15 +13,11 @@ export default function Routes() {
     <>
       <Switch>
         <Route path="/" element={<Stream />} />
-      </Switch>
-      <Layout>
-        <Switch>
+        <Route element={<Layout />}>
           <Route path="/weather" element={<Weather />} />
           <Route path="/settings" element={<Settings />} />
-        </Switch>
-      </Layout>
+        </Route>
+      </Switch>
     </>
   );
 }
-
-//!Research whether it is a good practice to use 2 switch components inside one router and whether it is okay to configure the Layout like this
