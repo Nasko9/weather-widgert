@@ -1,21 +1,36 @@
-import {
-  FocusContext,
-  useFocusable,
-} from '@noriginmedia/norigin-spatial-navigation';
-// import useWeatherData from 'hooks/useWeatherData';
+import { FocusContext } from '@noriginmedia/norigin-spatial-navigation';
+
+// Components
+import Hero from './Hero';
+//Hook
+import useWeatherScreen from './useWeatherScreen';
+// Component
+import WeatherContent from './WeatherContent';
 
 export default function Weather() {
-  const { ref, focusKey, focused } = useFocusable({});
-
-  // const { weatherData } = useWeatherData();
-  // console.log(weatherData, 'weatherdata');
+  const {
+    ref,
+    focusKey,
+    fiveDayForecastData,
+    fiveDayForecastStatus,
+    cardIndex,
+    setCardIndex,
+  } = useWeatherScreen();
 
   return (
     <FocusContext.Provider value={focusKey}>
-      <div
-        ref={ref}
-        className={`h-52 w-52 ${focused ? 'bg-red-400' : 'bg-green-400'}`}
-      ></div>
+      <div ref={ref} className="flex flex-col items-center gap-40 mt-40">
+        <Hero
+          index={cardIndex}
+          data={fiveDayForecastData}
+          status={fiveDayForecastStatus}
+        />
+        <WeatherContent
+          data={fiveDayForecastData?.list}
+          status={fiveDayForecastStatus}
+          setCardIndex={setCardIndex}
+        />
+      </div>
     </FocusContext.Provider>
   );
 }
