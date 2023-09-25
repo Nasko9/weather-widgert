@@ -8,7 +8,7 @@ import SettingContainer from 'components/Layout/SettingContainer';
 import useInput from './useInput';
 
 export default function Input() {
-  const { inputValue, inputRef, inputHandler, ref, focused } = useInput();
+  const { location, inputRef, inputHandler, ref, focused } = useInput();
 
   return (
     <SettingContainer focused={focused}>
@@ -18,7 +18,7 @@ export default function Input() {
           ref={inputRef}
           className="text-3xl font-bold p-2 bg-primary-light dark:bg-primary-dark"
           placeholder="Lokacija"
-          value={inputValue}
+          value={location}
           onChange={(e) => inputHandler(e.target.value)}
         />
         <FontAwesomeIcon icon={faLocationDot} className="w-9 h-9" />

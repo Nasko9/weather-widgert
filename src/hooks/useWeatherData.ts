@@ -1,20 +1,26 @@
 import { useQuery } from '@tanstack/react-query';
+import { useContext, useEffect } from 'react';
 
 // Api
 import { getFiveDayForecastByCityName } from 'api/weather';
 // import { WeatherListItem } from 'api/weather/type';
+// Context
+import SettingsContext from 'context/SettingsContext';
 // Hook
 import useUserLocation from 'hooks/useUserLocation';
 
 export default function useWeatherData() {
   const { userCity } = useUserLocation();
+  const { location, setLocation } = useContext(SettingsContext);
+
+  const cityName = location || userCity;
 
   const { data: fiveDayForecastData, status: fiveDayForecastStatus } = useQuery(
-    ['fiveDayForecast'],
-    () => getFiveDayForecastByCityName(userCity),
+    ['fiveDayForecast', cityName],
+    () => getFiveDayForecastByCityName(cityName),
     {
       staleTime: 1000 * 60 * 30,
-      enabled: !!userCity,
+      enabled: !!cityName,
       select: (data: any) => {
         // TODO: Replace any with type
         // console.warn(data, 'data for defining type');
@@ -33,6 +39,10 @@ export default function useWeatherData() {
       },
     },
   );
+
+  useEffect(() => {
+    setLocation(cityName);
+  }, [cityName, setLocation]);
 
   return {
     fiveDayForecastData,

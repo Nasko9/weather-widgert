@@ -1,12 +1,18 @@
 import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// // Hook
-// import useData from 'hooks/useWeatherData';
+// Type
+import { WeatherListItem } from 'api/weather/type';
+// Context
+import SettingsContext from 'context/SettingsContext';
+// Hook
+import useWeatherData from 'hooks/useWeatherData';
 
 export default function useWidget() {
+  const [displayedData, setDisplayedData] = useState<WeatherListItem[]>([]);
   const [isVisible, setIsVisible] = useState(false);
+  const { viewMode } = useContext(SettingsContext);
 
   const navigate = useNavigate();
 
@@ -15,6 +21,8 @@ export default function useWidget() {
       if (isVisible) navigate(`/weather`);
     },
   });
+
+  const { fiveDayForecastData, fiveDayForecastStatus } = useWeatherData();
 
   useEffect(() => {
     setIsVisible(true);
@@ -27,31 +35,35 @@ export default function useWidget() {
   }, []);
 
   useEffect(() => {
+    if (fiveDayForecastData) {
+      let data;
+      switch (viewMode) {
+        case 'Single':
+          data = fiveDayForecastData.list.slice(0, 1);
+          break;
+        case 'Three':
+          data = fiveDayForecastData.list.slice(0, 3);
+          break;
+        default:
+          data = fiveDayForecastData.list;
+          break;
+      }
+      setDisplayedData(data);
+    }
+  }, [fiveDayForecastData, viewMode]);
+
+  useEffect(() => {
     focusSelf();
   }, [focusSelf]);
 
-  // useEffect(() => {
-  //   const findCurrentWeather = (arr: any) => {
-  //     const now = new Date().getTime();
+  const skeletonCount = displayedData && displayedData.length > 1 ? 3 : 1;
 
-  //     const differences = arr.map((item: any) => {
-  //       return {
-  //         ...item,
-  //         difference: Math.abs(now - item.timestamp),
-  //       };
-  //     });
-
-  //     differences.sort((a: any, b: any) => a.difference - b.difference);
-
-  //     return differences[0];
-  //   };
-
-  //   // if (dataByCoords) {
-  //   //   const closestTimestamp = findCurrentWeather(dataByCoords?.data.list);
-  //   //   console.log(dataByCoords);
-  //   //   console.log(closestTimestamp, 'dt');
-  //   // }
-  // }, [dataByCoords]);
-
-  return { ref, focused, isVisible };
+  return {
+    ref,
+    focused,
+    isVisible,
+    fiveDayForecastStatus,
+    displayedData,
+    skeletonCount,
+  };
 }

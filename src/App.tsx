@@ -6,7 +6,8 @@ import ReactQueryProvider from 'components/Providers/ReactQueryProvider';
 // Routes
 import Routes from 'containers/Routes';
 // Context
-import { DarkModeProvider } from 'context/DarkModeContext';
+import { SettingsContextProvider } from 'context/SettingsContext';
+import { ThemeContextProvider } from 'context/ThemeContext';
 
 // Init navigation
 init({ debug: false, visualDebug: false });
@@ -14,11 +15,13 @@ init({ debug: false, visualDebug: false });
 function App() {
   return (
     <ReactQueryProvider>
-      <DarkModeProvider>
-        <HashRouter>
-          <Routes />
-        </HashRouter>
-      </DarkModeProvider>
+      <ThemeContextProvider>
+        <SettingsContextProvider>
+          <HashRouter>
+            <Routes />
+          </HashRouter>
+        </SettingsContextProvider>
+      </ThemeContextProvider>
     </ReactQueryProvider>
   );
 }

@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+
 // Type
 import { City, WeatherListItem } from 'api/weather/type';
 // Components
 import AsyncComponent from 'components/AsyncComponent';
 import CardContainer from 'components/Layout/CardContainer';
 import WeatherIcon from 'components/Layout/WeatherIcon';
+// Context
+import SettingsContext from 'context/SettingsContext';
 // Utils
 import { convertDateFormat, getCurrentTime } from 'utils/dateConverter';
 import { convertKelvin } from 'utils/temperatureConverter';
@@ -18,6 +22,8 @@ interface IHero {
 }
 
 export default function Hero({ index, data, status }: IHero) {
+  const { measureUnit } = useContext(SettingsContext);
+
   return (
     <AsyncComponent
       status={status}
@@ -42,7 +48,7 @@ export default function Hero({ index, data, status }: IHero) {
                     {data?.city?.name},{data?.city?.country}
                   </p>
                   <h1 className="text-9xl font-bold">
-                    {convertKelvin(data?.list[index]?.main.temp, 'celsius')}°C
+                    {convertKelvin(data?.list[index]?.main.temp, measureUnit)}
                   </h1>
                   <div className="flex gap-10 text-2xl">
                     <div>
@@ -51,9 +57,8 @@ export default function Hero({ index, data, status }: IHero) {
                         <strong>
                           {convertKelvin(
                             data?.list[index]?.main.temp_min,
-                            'celsius',
+                            measureUnit,
                           )}
-                          °C
                         </strong>
                       </p>
                       <p>
@@ -61,9 +66,8 @@ export default function Hero({ index, data, status }: IHero) {
                         <strong>
                           {convertKelvin(
                             data?.list[index]?.main.temp_max,
-                            'celsius',
+                            measureUnit,
                           )}
-                          °C
                         </strong>
                       </p>
                     </div>

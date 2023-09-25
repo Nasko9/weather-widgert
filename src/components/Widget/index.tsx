@@ -1,25 +1,43 @@
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FocusContext } from '@noriginmedia/norigin-spatial-navigation';
 
+// Type
+import { WeatherListItem } from 'api/weather/type';
+// Component
+import AsyncComponent from 'components/AsyncComponent';
+import CardContainer from 'components/Layout/CardContainer';
+
+// Skeleton
+// import Skeleton from './Skeleton';
 // Hook
 import useWidget from './useWidget';
+// Components
+import WidgetItem from './WidgetItem';
 
 export default function Widget() {
-  const { ref, focused, isVisible } = useWidget();
+  const { ref, focused, isVisible, fiveDayForecastStatus, displayedData } =
+    useWidget();
 
   return (
     <FocusContext.Provider value={'widget'}>
-      <div>
-        <div
-          className={`w-44 h-40 rounded-xl bg-element-light text-text-light shadow-lg absolute top-8 right-8 flex justify-center items-center flex-col gap-2  ${
-            isVisible ? 'opacity-100' : 'opacity-0'
-          } ${focused ? 'border-[#74796D] border-5' : ''}`}
-          ref={ref}
-        >
-          <FontAwesomeIcon icon={faBolt} className="w-14 h-12" />
-          <p className="text-4xl font-bold ">14 °C</p>
-        </div>
+      <div
+        className={`absolute top-10 right-12 drop-shadow-xl ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+        ref={ref}
+      >
+        <AsyncComponent
+          status={fiveDayForecastStatus}
+          component={
+            <CardContainer focused={focused}>
+              <div className="flex gap-14">
+                {displayedData?.map((item: WeatherListItem, index: number) => (
+                  <WidgetItem key={index} {...item} />
+                ))}
+              </div>
+            </CardContainer>
+          }
+          skeleton={<></>}
+        />
       </div>
     </FocusContext.Provider>
   );

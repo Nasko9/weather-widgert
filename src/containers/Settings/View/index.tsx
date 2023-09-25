@@ -3,15 +3,19 @@ import CardContainer from 'components/Layout/CardContainer';
 
 // Component
 import ViewItem from './ViewItem';
+import { useContext } from 'react';
+import SettingsContext from 'context/SettingsContext';
 
 export default function View() {
+  const { viewMode } = useContext(SettingsContext);
+
   return (
     <CardContainer>
       <div className="flex flex-col items-center gap-7">
         <h1 className="text-4xl font-bold">Pregled</h1>
         <div className="flex gap-6">
-          <ViewItem view="single" />
-          <ViewItem view="three-day" />
+          <ViewItem view="Single" isSelected={viewMode === 'Single'} />
+          <ViewItem view="Three" isSelected={viewMode === 'Three'} />
         </div>
       </div>
     </CardContainer>

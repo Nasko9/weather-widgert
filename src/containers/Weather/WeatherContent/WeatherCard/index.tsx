@@ -1,11 +1,13 @@
 import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useContext } from 'react';
 
 // Type
 import { WeatherListItem } from 'api/weather/type';
 // Component
 import CardContainer from 'components/Layout/CardContainer';
 import WeatherIcon from 'components/Layout/WeatherIcon';
+// Context
+import SettingsContext from 'context/SettingsContext';
 // Utils
 import { convertDateFormat } from 'utils/dateConverter';
 import { convertKelvin } from 'utils/temperatureConverter';
@@ -22,6 +24,7 @@ export default function WeatherCard({
   id,
   setCardIndex,
 }: IWeatherCard) {
+  const { measureUnit } = useContext(SettingsContext);
   const { ref, focused } = useFocusable({
     onFocus: () => {
       setCardIndex(id);
@@ -34,7 +37,7 @@ export default function WeatherCard({
         <p className="text-xl font-bold">{convertDateFormat(dt_txt)}</p>
         <WeatherIcon weatherKey={weather[0].icon} size="medium" />
         <p className="text-6xl font-bold">
-          {convertKelvin(main.temp, 'celsius')} °C
+          {convertKelvin(main.temp, measureUnit)}
         </p>
       </div>
     </CardContainer>

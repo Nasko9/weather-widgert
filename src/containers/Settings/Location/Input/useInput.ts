@@ -1,8 +1,9 @@
 import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
-import { useRef, useState } from 'react';
+import SettingsContext from 'context/SettingsContext';
+import { useContext, useRef } from 'react';
 
 export default function useInput() {
-  const [inputValue, setInputValue] = useState('');
+  const { location, setLocation } = useContext(SettingsContext);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { ref, focused } = useFocusable({
@@ -19,7 +20,7 @@ export default function useInput() {
   });
 
   const inputHandler = (value: string) => {
-    setInputValue(value);
+    setLocation(value);
   };
-  return { inputValue, inputRef, inputHandler, ref, focused };
+  return { location, inputRef, inputHandler, ref, focused };
 }
