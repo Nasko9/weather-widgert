@@ -12,14 +12,14 @@ export default function MenuItem({ id, label, isSidebarFocused }: IMenuItem) {
   return (
     <div
       ref={ref}
-      className={`pl-5 flex gap-3 overflow-hidden ${
+      className={`pl-5 flex gap-3 items-center ${
         focused
           ? 'text-icon-focus-light dark:text-icon-focus-dark'
           : 'text-icon-light dark:text-icon-dark'
       }  `}
     >
       {sidebarIcons[id]}
-      <p className={`text-lg ${isSidebarFocused ? 'opacity-1' : 'opacity-0'} `}>
+      <p className={`text-lg ${isSidebarFocused ? 'block' : 'hidden'} `}>
         {label}
       </p>
     </div>
