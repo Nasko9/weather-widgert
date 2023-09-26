@@ -12,10 +12,8 @@ export default function MenuItem({ id, label, isSidebarFocused }: IMenuItem) {
   return (
     <div
       ref={ref}
-      className={`pl-5 flex gap-3 items-center ${
-        focused
-          ? 'text-icon-focus-light dark:text-icon-focus-dark'
-          : 'text-icon-light dark:text-icon-dark'
+      className={`pl-5 flex gap-3 items-center menuItemContainer ${
+        focused ? 'text-icon-focus-light focused' : 'text-icon-light unfocused'
       }  `}
     >
       {sidebarIcons[id]}

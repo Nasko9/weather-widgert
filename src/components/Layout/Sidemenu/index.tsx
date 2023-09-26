@@ -16,7 +16,7 @@ export default function Sidemenu({
     <FocusContext.Provider value={focusKey}>
       <div
         ref={ref}
-        className={`h-screen drop-shadow-xl flex items-center overflow-hidden bg-sidebar-light dark:bg-sidebar-dark ${
+        className={`h-screen drop-shadow-xl flex items-center overflow-hidden bg-sidebar-light sidemenuContainer ${
           hasFocusedChild ? 'w-52' : 'w-20'
         }`}
       >

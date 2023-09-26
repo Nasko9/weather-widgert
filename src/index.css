@@ -1,7 +1,54 @@
 /* Font import */
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Roboto:wght@300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Roboto:wght@300;400;700&display=swap');
 
 /* Tailwind directives  */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body.dark .cardContainer {
+  background-color: #334a76;
+  color: #f3e8cc;
+}
+
+body.dark .layout {
+  background-color: #332f2b;
+}
+
+body.dark .settingContainer {
+  background-color: #332f2b;
+  color: #f3e8cc;
+  border-color: #332f2b;
+}
+
+body.dark .settingContainer.focused {
+  border-color: #f3e8cc;
+}
+
+body.dark .settingContainer.unfocused {
+  border-color: #332f2b;
+}
+
+body.dark .sidemenuContainer {
+  background-color: #4d433c;
+}
+
+body.dark .menuItemContainer.focused {
+  color: #ccb8a3;
+}
+
+body.dark .menuItemContainer.unfocused {
+  color: #f3e8cc;
+}
+
+body.dark .skeletonWidgetElement {
+  color: #f3e8cc;
+}
+
+body.dark .inputElement {
+  background-color: #332f2b;
+}
+
+body.dark .skeletonCardContainer {
+  color: #4d433c;
+}

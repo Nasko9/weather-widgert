@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // animate-pulse
 export default function Skeleton() {
   return (
-    <div className=" bg-sidebar-light dark:bg-sidebar-dark drop-shadow-md rounded-2xl px-12 py-8 flex flex-col gap-6">
+    <div className=" bg-sidebar-light skeletonCardContainer drop-shadow-md rounded-2xl px-12 py-8 flex flex-col gap-6">
       <div className="flex justify-end">
         <div className="bg-primary-light w-20 h-4 rounded-md animate-pulse"></div>
       </div>

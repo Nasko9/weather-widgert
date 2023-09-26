@@ -16,7 +16,7 @@ export default function Input() {
         {' '}
         <input
           ref={inputRef}
-          className="text-3xl font-bold p-2 bg-primary-light dark:bg-primary-dark"
+          className="text-3xl font-bold p-2 bg-primary-light inputElement"
           placeholder="Lokacija"
           value={location}
           onChange={(e) => inputHandler(e.target.value)}

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function SkeletonCard() {
   return (
-    <div className="bg-sidebar-light dark:bg-sidebar-dark drop-shadow-md rounded-2xl px-12 py-8">
+    <div className="bg-sidebar-light drop-shadow-md rounded-2xl px-12 py-8 skeletonCardContainer">
       <div className="flex flex-col items-center gap-5">
         <div className=" bg-primary-light w-24 h-4 rounded-md animate-pulse"></div>
         <FontAwesomeIcon

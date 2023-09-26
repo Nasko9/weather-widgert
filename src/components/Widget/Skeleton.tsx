@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function SkeletonCard() {
   return (
     <div className="flex flex-col items-center gap-2">
-      <div className="bg-[#001D3D] dark:bg-[#F3E8CC] w-24 h-4 rounded-md animate-pulse"></div>
+      <div className=" bg-[#001D3D] w-24 h-4 rounded-md animate-pulse skeletonWidgetElement"></div>
       <FontAwesomeIcon
         icon={faCloudSun}
-        className="w-16 h-16 animate-pulse text-text-light dark:text-text-dark"
+        className="w-16 h-16 animate-pulse text-text-light skeletonWidgetElement"
       />
-      <div className="bg-[#001D3D] dark:bg-[#F3E8CC] w-28 h-10 rounded-lg animate-pulse"></div>
+      <div className="bg-[#001D3D] w-28 h-10 rounded-lg animate-pulse skeletonWidgetElement"></div>
     </div>
   );
 }

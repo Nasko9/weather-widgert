@@ -8,7 +8,7 @@ interface ICardContainer {
 export default function CardContainer({ children, focused }: ICardContainer) {
   return (
     <div
-      className={`bg-element-light dark:bg-element-dark text-text-light dark:text-text-dark drop-shadow-md rounded-2xl px-12 py-8 flex items-center ${
+      className={`bg-element-light text-text-light drop-shadow-md rounded-2xl px-12 py-8 flex items-center cardContainer ${
         focused ? 'scale-110' : 'scale-100'
       }`}
     >
