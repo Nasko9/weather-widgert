@@ -3,7 +3,6 @@ import { useContext, useEffect } from 'react';
 
 // Api
 import { getFiveDayForecastByCityName } from 'api/weather';
-// import { WeatherListItem } from 'api/weather/type';
 // Context
 import SettingsContext from 'context/SettingsContext';
 // Hook
@@ -22,8 +21,6 @@ export default function useWeatherData() {
       staleTime: 1000 * 60 * 30,
       enabled: !!cityName,
       select: (data: any) => {
-        // TODO: Replace any with type
-        // console.warn(data, 'data for defining type');
         const currentHour = new Date().getHours();
         const intervals = [0, 3, 6, 9, 12, 15, 18, 21];
         let targetHour = intervals.find((hour) => currentHour < hour) || 0;
