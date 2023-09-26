@@ -1,6 +1,8 @@
 import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
-import SettingsContext from 'context/SettingsContext';
 import { useContext, useRef } from 'react';
+
+// Context
+import SettingsContext from 'context/SettingsContext';
 
 export default function useInput() {
   const { location, setLocation } = useContext(SettingsContext);

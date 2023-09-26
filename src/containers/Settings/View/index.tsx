@@ -1,10 +1,12 @@
+import { useContext } from 'react';
+
 // Container
 import CardContainer from 'components/Layout/CardContainer';
+// Context
+import SettingsContext from 'context/SettingsContext';
 
 // Component
 import ViewItem from './ViewItem';
-import { useContext } from 'react';
-import SettingsContext from 'context/SettingsContext';
 
 export default function View() {
   const { viewMode } = useContext(SettingsContext);

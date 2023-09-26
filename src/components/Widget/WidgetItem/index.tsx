@@ -2,14 +2,13 @@ import { useContext } from 'react';
 
 // Type
 import { WeatherListItem } from 'api/weather/type';
+// Component
+import WeatherIcon from 'components/Layout/WeatherIcon';
 // Context
 import SettingsContext from 'context/SettingsContext';
 // Utils
-import { convertKelvin } from 'utils/temperatureConverter';
 import { convertDateFormat } from 'utils/dateConverter';
-
-// Component
-import WeatherIcon from 'components/Layout/WeatherIcon';
+import { convertKelvin } from 'utils/temperatureConverter';
 
 export default function WidgetItem({ dt_txt, weather, main }: WeatherListItem) {
   const { measureUnit } = useContext(SettingsContext);

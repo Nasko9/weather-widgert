@@ -1,11 +1,11 @@
 import { faCheck, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
+import { useContext } from 'react';
 
 // Container
 import SettingContainer from 'components/Layout/SettingContainer';
 import SettingsContext from 'context/SettingsContext';
-import { useContext } from 'react';
 
 interface IViewItem {
   view: 'Single' | 'Three';
