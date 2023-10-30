@@ -4,7 +4,7 @@ import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
 import { useContext } from 'react';
 
 // Components
-import SettingContainer from 'components/Layout/SettingContainer';
+import SettingContainer from 'components/Builder/SettingCard';
 // Context
 import SettingsContext from 'context/SettingsContext';
 

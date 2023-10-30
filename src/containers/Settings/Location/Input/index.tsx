@@ -2,7 +2,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Container
-import SettingContainer from 'components/Layout/SettingContainer';
+import SettingContainer from 'components/Builder/SettingCard';
 
 // Hook
 import useInput from './useInput';

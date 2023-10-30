@@ -3,8 +3,8 @@ import { FocusContext } from '@noriginmedia/norigin-spatial-navigation';
 // Type
 import { WeatherListItem } from 'api/weather/type';
 // Component
-import AsyncComponent from 'components/AsyncComponent';
-import CardContainer from 'components/Layout/CardContainer';
+import AsyncComponent from 'components/Async';
+import CardContainer from 'components/Builder/CardContainer';
 
 // Skeleton
 // import Skeleton from './Skeleton';

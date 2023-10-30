@@ -8,7 +8,7 @@ import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
 import { useContext } from 'react';
 
 // Container
-import CardContainer from 'components/Layout/CardContainer';
+import CardContainer from 'components/Builder/CardContainer';
 // Context
 import ThemeContext from 'context/ThemeContext';
 

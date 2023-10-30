@@ -3,9 +3,9 @@ import { useContext } from 'react';
 // Type
 import { City, WeatherListItem } from 'api/weather/type';
 // Components
-import AsyncComponent from 'components/AsyncComponent';
-import CardContainer from 'components/Layout/CardContainer';
-import WeatherIcon from 'components/Layout/WeatherIcon';
+import AsyncComponent from 'components/Async';
+import CardContainer from 'components/Builder/CardContainer';
+import WeatherIcon from 'components/Builder/WeatherIcon';
 // Context
 import SettingsContext from 'context/SettingsContext';
 // Utils

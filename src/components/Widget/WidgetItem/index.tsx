@@ -3,7 +3,7 @@ import { useContext } from 'react';
 // Type
 import { WeatherListItem } from 'api/weather/type';
 // Component
-import WeatherIcon from 'components/Layout/WeatherIcon';
+import WeatherIcon from 'components/Builder/WeatherIcon';
 // Context
 import SettingsContext from 'context/SettingsContext';
 // Utils

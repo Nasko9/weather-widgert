@@ -4,8 +4,8 @@ import { Dispatch, SetStateAction, useContext } from 'react';
 // Type
 import { WeatherListItem } from 'api/weather/type';
 // Component
-import CardContainer from 'components/Layout/CardContainer';
-import WeatherIcon from 'components/Layout/WeatherIcon';
+import CardContainer from 'components/Builder/CardContainer';
+import WeatherIcon from 'components/Builder/WeatherIcon';
 // Context
 import SettingsContext from 'context/SettingsContext';
 // Utils

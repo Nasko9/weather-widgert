@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from 'react';
 // Type
 import { WeatherListItem } from 'api/weather/type';
 // Component
-import AsyncComponent from 'components/AsyncComponent';
+import AsyncComponent from 'components/Async';
 
 // Component
 import Skeleton from './Skeleton';

@@ -14,6 +14,10 @@ export default function useWeatherData() {
 
   const cityName = location || userCity;
 
+  useEffect(() => {
+    setLocation(cityName);
+  }, [cityName, setLocation]);
+
   const { data: fiveDayForecastData, status: fiveDayForecastStatus } = useQuery(
     ['fiveDayForecast', cityName],
     () => getFiveDayForecastByCityName(cityName),
@@ -36,10 +40,6 @@ export default function useWeatherData() {
       },
     },
   );
-
-  useEffect(() => {
-    setLocation(cityName);
-  }, [cityName, setLocation]);
 
   return {
     fiveDayForecastData,

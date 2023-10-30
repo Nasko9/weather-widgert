@@ -4,7 +4,7 @@ import { useFocusable } from '@noriginmedia/norigin-spatial-navigation';
 import { useContext } from 'react';
 
 // Container
-import SettingContainer from 'components/Layout/SettingContainer';
+import SettingContainer from 'components/Builder/SettingCard';
 import SettingsContext from 'context/SettingsContext';
 
 interface IViewItem {
