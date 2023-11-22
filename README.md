@@ -12,7 +12,7 @@ This repository houses a dynamic weather widget tailored for integration into sm
 - 🕒 **5-day forecasts.**
 - 🌙 **Day and night mode** to match your viewing preferences.
 - 📏 **Scalable UI** to fit various TV resolutions and screen sizes.
-- 🌐 **Multi-language support.**
+- 🌐 **Multi-language support.** In progress 
 
 ## Contribute
 
